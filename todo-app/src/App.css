@@ -8,3 +8,8 @@
 .App-list {
   list-style-type: none;
 }
+
+li.done {
+  text-decoration: line-through;
+  opacity: .6;
+}

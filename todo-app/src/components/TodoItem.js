@@ -1,14 +1,18 @@
 //Här använder vi object destructuring där vi plockar ut task från props-objektet
-function TodoItem({ task, done }) {
+function TodoItem({ task, done, id, update }) {
   console.log('TodoItem props:', task);
-  let doneText = 'Ej klar';
+  
+  let doneClass = (done) ? 'done' : '';
 
-  if (done) {
-    doneText = 'Klar'
+  function handleCheck(){
+    update(id)
   }
 
   return (
-    <li>{ task } - { done ? 'Klar' : 'Ej klar' }</li>
+    <li className={doneClass}>
+      <input type="checkbox" checked={done} onChange={ handleCheck } />
+      { task }
+    </li>
   )
 }
 
